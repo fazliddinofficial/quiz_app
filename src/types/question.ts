@@ -5,3 +5,8 @@ export interface QuestionInterface {
   answers: Types.ObjectId[];
   quiz: Types.ObjectId;
 }
+
+export interface UpdateQuestionInterface {
+  questionId: Types.ObjectId;
+  data: Omit<QuestionInterface, "quiz">;
+}

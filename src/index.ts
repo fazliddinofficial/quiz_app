@@ -1,6 +1,5 @@
 import { ApolloServer } from "apollo-server-express";
 import { context } from "./graphql";
-import { startStandaloneServer } from "@apollo/server/standalone";
 import express from "express";
 import cors from "cors";
 import { typeDefs } from "./graphql/types";
