@@ -6,7 +6,7 @@ export const createAnswer = async ({
   isTrue,
   question,
   text,
-}: AnswerInterface) => {
+}: AnswerInterface, context) => {
   try {
     const createdAnswer = await AnswerModel.create({
       isTrue,
@@ -24,7 +24,7 @@ export const getAnswerById = async ({
   answerId,
 }: {
   answerId: Types.ObjectId;
-}) => {
+}, context) => {
   try {
     const foundAnswer = await AnswerModel.findById(answerId);
 
@@ -41,7 +41,7 @@ export const getAnswerById = async ({
 export const updateAnswerById = async ({
   answerId,
   data,
-}: UpdateAnswerById) => {
+}: UpdateAnswerById, context) => {
   try {
     const updatedAnswer = await AnswerModel.findByIdAndUpdate(
       answerId,
@@ -59,7 +59,7 @@ export const updateAnswerById = async ({
   }
 };
 
-export const deleteAnswerById = async ({ answerId }) => {
+export const deleteAnswerById = async ({ answerId }, context) => {
   try {
     const deletedQuestion = await AnswerModel.findByIdAndDelete(answerId);
 

@@ -2,7 +2,7 @@ import { CreateQuizInterface, UpdateQuizInterface } from "@/types/quiz";
 import { QuizModel } from "./quiz.model";
 import { Types } from "mongoose";
 
-export const createQuiz = async (data: CreateQuizInterface) => {
+export const createQuiz = async (data: CreateQuizInterface, context) => {
   try {
     const createdQuiz = await QuizModel.create(data);
 
@@ -12,7 +12,7 @@ export const createQuiz = async (data: CreateQuizInterface) => {
   }
 };
 
-export const updateQuiz = async ({ quizId, data }: UpdateQuizInterface) => {
+export const updateQuiz = async ({ quizId, data }: UpdateQuizInterface, context) => {
   try {
     const updatedQuiz = await QuizModel.findByIdAndUpdate(
       quizId,
@@ -30,7 +30,7 @@ export const updateQuiz = async ({ quizId, data }: UpdateQuizInterface) => {
   }
 };
 
-export const getQuizById = async ({quizId}: {quizId: Types.ObjectId}) => {
+export const getQuizById = async ({quizId}: {quizId: Types.ObjectId}, context) => {
   try {
     const foundQuiz = await QuizModel.findById(quizId);
 
@@ -44,7 +44,7 @@ export const getQuizById = async ({quizId}: {quizId: Types.ObjectId}) => {
   }
 };
 
-export const deleteQuizById = async ({quizId}: {quizId: Types.ObjectId}) => {
+export const deleteQuizById = async ({quizId}: {quizId: Types.ObjectId}, context) => {
   try {
     const deletedQuiz = await QuizModel.findByIdAndDelete(quizId);
 
@@ -53,6 +53,16 @@ export const deleteQuizById = async ({quizId}: {quizId: Types.ObjectId}) => {
     }
 
     return true;
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
+export const getAllQuiz = async (context) => {
+  try {
+    const foundAllQuiz = await QuizModel.find({user: context.user._id});
+
+    return foundAllQuiz;
   } catch (error) {
     throw new Error(error)
   }

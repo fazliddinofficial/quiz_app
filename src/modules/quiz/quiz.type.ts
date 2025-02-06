@@ -26,4 +26,26 @@ export const quizType = gql`
     questionType: QUESTION_TYPE_ENUM
     isFile: Boolean
   }
+
+  input CreateQuizInput {
+    title: String!
+    timeLimit: Int
+    description: String
+    img: String
+    keyword: String!
+    theme: String!
+    visibility: QUIZ_VISIBILITY!
+    questionType: QUESTION_TYPE_ENUM!
+  }
+
+  input UpdateQuizInput {
+    title: String
+    timeLimit: Int
+    description: String
+    img: String
+    keyword: String
+    theme: String
+    visibility: QUIZ_VISIBILITY
+    questionType: QUESTION_TYPE_ENUM
+  }
 `;
