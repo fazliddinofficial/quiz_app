@@ -3,7 +3,7 @@ import { QuizModel } from "../quiz/quiz.model";
 import { QuestionModel } from "./question.model";
 import { Types } from "mongoose";
 
-export const createQuestion = async (data: QuestionInterface) => {
+export const createQuestion = async (data: QuestionInterface, context) => {
   try {
     const foundQuiz = await QuizModel.findById(data.quiz).lean();
 
@@ -20,10 +20,10 @@ export const createQuestion = async (data: QuestionInterface) => {
   }
 };
 
-export const updateQuestionById = async ({
-  questionId,
-  data,
-}: UpdateQuestionInterface) => {
+export const updateQuestionById = async (
+  { questionId, data }: UpdateQuestionInterface,
+  context
+) => {
   try {
     const foundQuestion = await QuestionModel.findByIdAndUpdate(
       questionId,
@@ -39,11 +39,14 @@ export const updateQuestionById = async ({
   }
 };
 
-export const deleteQuestionById = async ({
-  questionId,
-}: {
-  questionId: Types.ObjectId;
-}) => {
+export const deleteQuestionById = async (
+  {
+    questionId,
+  }: {
+    questionId: Types.ObjectId;
+  },
+  context
+) => {
   try {
     const deletedQuestion = await QuestionModel.findByIdAndDelete(questionId);
 
