@@ -5,3 +5,8 @@ export interface AnswerInterface {
   isTrue: boolean;
   question: Types.ObjectId;
 }
+
+export interface UpdateAnswerById {
+  data: AnswerInterface;
+  answerId: Types.ObjectId;
+}

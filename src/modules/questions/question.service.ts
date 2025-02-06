@@ -31,7 +31,7 @@ export const updateQuestionById = async ({
       { new: true }
     );
 
-    if (foundQuestion) throw new Error("Question not found!");
+    if (!foundQuestion) throw new Error("Question not found!");
 
     return foundQuestion;
   } catch (error) {

@@ -4,7 +4,7 @@ import { Types } from "mongoose";
 
 export const createQuiz = async (data: CreateQuizInterface) => {
   try {
-    const createdQuiz = await QuizModel.create({ ...data });
+    const createdQuiz = await QuizModel.create(data);
 
     return createdQuiz;
   } catch (error) {
