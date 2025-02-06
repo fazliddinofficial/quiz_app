@@ -20,7 +20,7 @@ export const updateQuiz = async ({ quizId, data }: UpdateQuizInterface) => {
       { new: true }
     );
 
-    if (!updateQuiz) {
+    if (!updatedQuiz) {
       throw new Error("Quiz not found!")
     }
 
@@ -35,7 +35,7 @@ export const getQuizById = async ({quizId}: {quizId: Types.ObjectId}) => {
     const foundQuiz = await QuizModel.findById(quizId);
 
     if (!foundQuiz) {
-      throw new Error('Quiz not found!')
+      throw new Error('Quiz not found!');
     }
 
     return foundQuiz;
@@ -49,7 +49,7 @@ export const deleteQuizById = async ({quizId}: {quizId: Types.ObjectId}) => {
     const deletedQuiz = await QuizModel.findByIdAndDelete(quizId);
 
     if (!deletedQuiz) {
-      throw new Error('Quiz not found!')
+      throw new Error('Quiz not found!');
     }
 
     return true;
