@@ -2,11 +2,10 @@ import { AnswerInterface, UpdateAnswerById } from "@/types/answer";
 import { AnswerModel } from "./answer.model";
 import { Types } from "mongoose";
 
-export const createAnswer = async ({
-  isTrue,
-  question,
-  text,
-}: AnswerInterface, context) => {
+export const createAnswer = async (
+  { isTrue, question, text }: AnswerInterface,
+  context,
+) => {
   try {
     const createdAnswer = await AnswerModel.create({
       isTrue,
@@ -20,11 +19,14 @@ export const createAnswer = async ({
   }
 };
 
-export const getAnswerById = async ({
-  answerId,
-}: {
-  answerId: Types.ObjectId;
-}, context) => {
+export const getAnswerById = async (
+  {
+    answerId,
+  }: {
+    answerId: Types.ObjectId;
+  },
+  context,
+) => {
   try {
     const foundAnswer = await AnswerModel.findById(answerId);
 
@@ -38,15 +40,15 @@ export const getAnswerById = async ({
   }
 };
 
-export const updateAnswerById = async ({
-  answerId,
-  data,
-}: UpdateAnswerById, context) => {
+export const updateAnswerById = async (
+  { answerId, data }: UpdateAnswerById,
+  context,
+) => {
   try {
     const updatedAnswer = await AnswerModel.findByIdAndUpdate(
       answerId,
       { ...data },
-      { new: true }
+      { new: true },
     );
 
     if (!updatedAnswer) {
@@ -59,7 +61,10 @@ export const updateAnswerById = async ({
   }
 };
 
-export const deleteAnswerById = async ({ answerId }, context) => {
+export const deleteAnswerById = async (
+  { answerId }: { answerId: Types.ObjectId },
+  context,
+) => {
   try {
     const deletedQuestion = await AnswerModel.findByIdAndDelete(answerId);
 
