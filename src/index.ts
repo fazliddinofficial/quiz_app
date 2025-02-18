@@ -5,6 +5,7 @@ import cors from "cors";
 import { typeDefs } from "./graphql/types";
 import { resolvers } from "./graphql/resolvers";
 import { createServer } from "http";
+import mongoose from "mongoose";
 
 const app = express();
 
@@ -25,7 +26,9 @@ server.start().then(() => server.applyMiddleware({ app, path: "/api" }));
 export const apolloServer = createServer(app);
 
 (async () => {
-  apolloServer.listen(4000);
+  mongoose.connect("mongodb://localhost:27017/quizApp");
 
-  console.log(`Server up and running on 4000`);
+  apolloServer.listen(9000);
+
+  console.log(`Server up and running on 9000`);
 })();

@@ -29,10 +29,10 @@ export interface QuizInterface {
 }
 
 export interface CreateQuizInterface {
-  data: QuizInterface
+  data: QuizInterface;
 }
 
 export interface UpdateQuizInterface {
   quizId: Types.ObjectId;
-  data: Partial<QuizInterface>
+  data: Partial<QuizInterface>;
 }

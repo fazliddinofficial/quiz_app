@@ -2,9 +2,12 @@ import { CreateQuizInterface, UpdateQuizInterface } from "@/types/quiz";
 import { QuizModel } from "./quiz.model";
 import { Types } from "mongoose";
 
-export const createQuiz = async (data: CreateQuizInterface, context) => {
+export const createQuiz = async ({ data }: CreateQuizInterface, context) => {
   try {
-    const createdQuiz = await QuizModel.create(data);
+    const createdQuiz = await QuizModel.create({
+      ...data,
+      user: context.userId,
+    });
 
     return createdQuiz;
   } catch (error) {
@@ -19,7 +22,7 @@ export const updateQuiz = async (
   try {
     const updatedQuiz = await QuizModel.findByIdAndUpdate(
       quizId,
-      { data },
+      { ...data },
       { new: true }
     );
 
@@ -69,6 +72,10 @@ export const deleteQuizById = async (
 
 export const getAllQuiz = async (context) => {
   try {
+    if (!context.user._id) {
+      throw new Error("UserId is required!");
+    }
+
     const foundAllQuiz = await QuizModel.find({ user: context.user._id });
 
     return foundAllQuiz;
