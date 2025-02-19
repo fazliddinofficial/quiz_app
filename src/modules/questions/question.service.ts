@@ -1,11 +1,11 @@
 import {
   CreateQuestionInterface,
-  QuestionInterface,
   UpdateQuestionInterface,
 } from "@/types/question";
 import { QuizModel } from "../quiz/quiz.model";
 import { QuestionModel } from "./question.model";
 import { Types } from "mongoose";
+import { POPULATIONS } from "@/constants/population";
 
 export const createQuestion = async (
   { data }: CreateQuestionInterface,
@@ -78,7 +78,9 @@ export const getAllQuestion = async (
 
 export const getQuestionById = async ({ questionId }, context) => {
   try {
-    const foundQuestion = await QuestionModel.findById(questionId);
+    const foundQuestion = await QuestionModel.findById(questionId).populate(
+      POPULATIONS.question
+    );
 
     if (!foundQuestion) {
       throw new Error("Question not found!");

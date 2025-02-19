@@ -2,8 +2,9 @@ import { gql } from "apollo-server-core";
 
 export const answerType = gql`
   type Answer {
+    _id: ID
     isTrue: Boolean
-    question: Question
+    question: ID
     text: String
   }
 
