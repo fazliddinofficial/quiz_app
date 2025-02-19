@@ -10,3 +10,7 @@ export interface UpdateQuestionInterface {
   questionId: Types.ObjectId;
   data: Omit<QuestionInterface, "quiz">;
 }
+
+export interface CreateQuestionInterface {
+  data: QuestionInterface;
+}

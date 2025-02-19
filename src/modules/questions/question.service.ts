@@ -1,9 +1,16 @@
-import { QuestionInterface, UpdateQuestionInterface } from "@/types/question";
+import {
+  CreateQuestionInterface,
+  QuestionInterface,
+  UpdateQuestionInterface,
+} from "@/types/question";
 import { QuizModel } from "../quiz/quiz.model";
 import { QuestionModel } from "./question.model";
 import { Types } from "mongoose";
 
-export const createQuestion = async (data: QuestionInterface, context) => {
+export const createQuestion = async (
+  { data }: CreateQuestionInterface,
+  context
+) => {
   try {
     const foundQuiz = await QuizModel.findById(data.quiz).lean();
 

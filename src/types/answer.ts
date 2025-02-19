@@ -10,3 +10,7 @@ export interface UpdateAnswerById {
   data: AnswerInterface;
   answerId: Types.ObjectId;
 }
+
+export interface CreateAnswerInterface {
+  data: AnswerInterface;
+}
