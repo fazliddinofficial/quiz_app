@@ -6,4 +6,16 @@ export const questionType = gql`
     answers: [ID]
     quiz: ID
   }
-`
+
+  input CreateQuestionInput {
+    text: String!
+    answer: [ID!]!
+    quiz: ID!
+  }
+
+  input UpdateQuestionInput {
+    text: String
+    answer: [ID]
+    quiz: ID
+  }
+`;

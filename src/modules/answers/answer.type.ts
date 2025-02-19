@@ -4,6 +4,12 @@ export const answerType = gql`
   type Answer {
     isTrue: Boolean
     question: ID
-    text: String   
+    text: String
   }
-`
+
+  input CreateAnswerInput {
+    isTrue: Boolean
+    question: ID
+    text: String
+  }
+`;
