@@ -57,3 +57,28 @@ export const deleteQuestionById = async (
     throw new Error(error);
   }
 };
+
+export const getAllQuestion = async (
+  { quizId }: { quizId: Types.ObjectId },
+  context
+) => {
+  try {
+    const foundQuestions = await QuestionModel.find({ quiz: quizId });
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+export const getQuestionById = async ({ questionId }, context) => {
+  try {
+    const foundQuestion = await QuestionModel.findById(questionId);
+
+    if (!foundQuestion) {
+      throw new Error("Question not found!");
+    }
+
+    return foundQuestion;
+  } catch (error) {
+    throw new Error(error);
+  }
+};
