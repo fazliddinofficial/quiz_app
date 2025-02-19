@@ -12,7 +12,7 @@ export const mutationType = gql`
     ${MUTATIONS.UPDATE_ANSWER_BY_ID}(data: UpdateAnswerInput!, answerId: ID!): Answer
 
     ${MUTATIONS.CREATE_QUESTION}(data: CreateQuestionInput!): Question
-    ${MUTATIONS.UPDATE_QUESTION_BY_ID}(data: UpdateQuestionInput!, questionId: ID): Question
+    ${MUTATIONS.UPDATE_QUESTION_BY_ID}(data: UpdateQuestionInput!, questionId: ID!): Question
     ${MUTATIONS.DELETE_QUESTION_BY_ID}(questionId: ID!): Boolean
   }
 `;

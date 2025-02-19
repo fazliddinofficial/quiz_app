@@ -7,7 +7,7 @@ export const queryType = gql`
     ${QUERIES.GET_QUIZ_BY_ID}(quizId: ID): Quiz
 
     ${QUERIES.GET_QUESTIONS}: [Question]
-    ${QUERIES.GET_ANSWER_BY_ID}(questionId): Question
+    ${QUERIES.GET_QUESTION_BY_ID}(questionId: ID): Question
 
     ${QUERIES.GET_ALL_ANSWER}: [Question]
     ${QUERIES.GET_ANSWER_BY_ID}(answerId: ID): Question
