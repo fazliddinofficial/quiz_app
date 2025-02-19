@@ -1,17 +1,23 @@
-import { AnswerInterface, UpdateAnswerById } from "@/types/answer";
+import {
+  AnswerInterface,
+  CreateAnswerInterface,
+  UpdateAnswerById,
+} from "@/types/answer";
 import { AnswerModel } from "./answer.model";
 import { Types } from "mongoose";
+import { QuestionModel } from "../questions/question.model";
 
 export const createAnswer = async (
-  { isTrue, question, text }: AnswerInterface,
+  { data }: CreateAnswerInterface,
   context
 ) => {
   try {
-    const createdAnswer = await AnswerModel.create({
-      isTrue,
-      question,
-      text,
-    });
+    const createdAnswer = await AnswerModel.create({ ...data });
+
+    const updatedQuestion = await QuestionModel.findById(data.question);
+
+    updatedQuestion.answers.push(createdAnswer._id);
+    updatedQuestion.save();
 
     return createdAnswer;
   } catch (error) {
