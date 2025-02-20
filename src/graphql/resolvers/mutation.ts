@@ -2,6 +2,7 @@ import { MUTATIONS } from "@/constants/mutation";
 import * as quizService from "@/modules/quiz/quiz.service";
 import * as answerService from "@/modules/answers/answer.service";
 import * as questionService from "@/modules/questions/question.service";
+import * as gameService from "@/modules/game/game.service";
 import { CreateQuizInterface, UpdateQuizInterface } from "@/types/quiz";
 import { Types } from "mongoose";
 
@@ -36,5 +37,14 @@ export const mutations = {
   },
   [MUTATIONS.DELETE_QUESTION_BY_ID]: (_, args, context) => {
     return questionService.deleteQuestionById(args, context);
+  },
+  [MUTATIONS.CREATE_GAME]: (_, args, context) => {
+    return gameService.createGame(args, context);
+  },
+  [MUTATIONS.UPDATE_GAME_BY_ID]: (_, args, context) => {
+    return gameService.updateGameById(args, context);
+  },
+  [MUTATIONS.DELETE_GAME_BY_ID]: (_, args, context) => {
+    return gameService.deleteGameById(args, context);
   },
 };

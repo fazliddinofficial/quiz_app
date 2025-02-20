@@ -2,6 +2,7 @@ import { gql } from "apollo-server-core";
 
 export const questionType = gql`
   type Question {
+    _id: ID
     text: String
     quiz: Quiz
     answers: [Answer]

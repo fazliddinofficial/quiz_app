@@ -2,6 +2,7 @@ import { QUERIES } from "@/constants/query";
 import * as quizService from "@/modules/quiz/quiz.service";
 import * as answerService from "@/modules/answers/answer.service";
 import * as questionService from "@/modules/questions/question.service";
+import * as gameService from "@/modules/game/game.service";
 
 export const query = {
   [QUERIES.GET_ALL_QUIZ]: (_, args, context) => {
@@ -21,5 +22,8 @@ export const query = {
   },
   [QUERIES.GET_QUESTION_BY_ID]: (_, args, context) => {
     return questionService.getQuestionById(args, context);
+  },
+  [QUERIES.GET_GAME_BY_ID]: (_, args, context) => {
+    return gameService.getGameById(args, context);
   },
 };

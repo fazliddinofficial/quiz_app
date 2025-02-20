@@ -9,7 +9,7 @@ export const answerType = gql`
   }
 
   input CreateAnswerInput {
-    isTrue: Boolean!
+    isTrue: Boolean
     question: ID!
     text: String!
   }

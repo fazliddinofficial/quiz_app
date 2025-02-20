@@ -11,5 +11,7 @@ export const queryType = gql`
 
     ${QUERIES.GET_ALL_ANSWER}: [Question]
     ${QUERIES.GET_ANSWER_BY_ID}(answerId: ID): Question
+
+    ${QUERIES.GET_GAME_BY_ID}(gameId: ID): Game
   }
 `;

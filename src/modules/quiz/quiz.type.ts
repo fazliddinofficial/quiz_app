@@ -16,6 +16,7 @@ export const quizType = gql`
   }
 
   type Quiz {
+    _id: ID
     title: String
     timeLimit: Int
     description: String

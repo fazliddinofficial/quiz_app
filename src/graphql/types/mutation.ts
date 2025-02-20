@@ -14,5 +14,9 @@ export const mutationType = gql`
     ${MUTATIONS.CREATE_QUESTION}(data: CreateQuestionInput!): Question
     ${MUTATIONS.UPDATE_QUESTION_BY_ID}(data: UpdateQuestionInput!, questionId: ID!): Question
     ${MUTATIONS.DELETE_QUESTION_BY_ID}(questionId: ID!): Boolean
+
+    ${MUTATIONS.CREATE_GAME}(data: CreateGameInput): Game
+    ${MUTATIONS.UPDATE_GAME_BY_ID}(gameId: ID, data: UpdateGameInput): Game
+    ${MUTATIONS.DELETE_GAME_BY_ID}(gameId: ID): Boolean    
   }
 `;

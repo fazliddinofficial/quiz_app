@@ -10,4 +10,8 @@ export const MUTATIONS = {
   CREATE_QUESTION: "createQuestion",
   UPDATE_QUESTION_BY_ID: "updateQuestionById",
   DELETE_QUESTION_BY_ID: "deleteQuestionById",
+
+  CREATE_GAME: "createGame",
+  UPDATE_GAME_BY_ID: "updateGameById",
+  DELETE_GAME_BY_ID: "deleteGameById",
 };

@@ -2,7 +2,7 @@ import { Types } from "mongoose";
 
 export interface GameInterface {
   quizId: Types.ObjectId;
-  ownerUserId: Types.ObjectId;
+  ownerUserId?: Types.ObjectId;
   playersId: Types.ObjectId[];
   keyword: string;
 }

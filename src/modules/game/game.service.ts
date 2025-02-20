@@ -4,7 +4,11 @@ import { Types } from "mongoose";
 
 export const createGame = async (data: GameInterface, context: any) => {
   try {
-    const createdGame = await GameModel.create(data);
+    console.log(data);
+    const createdGame = await GameModel.create({
+      ...data,
+      ownerUserId: context.userId || "677e68e26ff50cb27af060fe",
+    });
 
     return createdGame;
   } catch (error) {
