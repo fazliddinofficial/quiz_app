@@ -13,17 +13,9 @@ const quizSchema = new Schema<QuizInterface>(
       required: true,
       ref: SCHEMA_NAMES.User,
     },
-    mark: {
-      type: Number,
-      default: 1000,
-    },
     title: {
       type: String,
       required: true,
-    },
-    timeLimit: {
-      type: Number,
-      default: 10,
     },
     description: {
       type: String,

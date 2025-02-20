@@ -20,6 +20,14 @@ const questionSchema = new Schema<QuestionInterface>(
       ref: SCHEMA_NAMES.Quiz,
       required: true,
     },
+    mark: {
+      type: Number,
+      default: 1000,
+    },
+    timeLimit: {
+      type: Number,
+      default: Number,
+    },
   },
   { timestamps: true }
 );

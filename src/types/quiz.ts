@@ -18,11 +18,9 @@ export interface QuizInterface {
   img?: string;
   title: string;
   description: string;
-  timeLimit?: number;
   visibility?: QUIZ_VISIBILITY;
   theme: string;
   questionType: QUESTION_TYPE_ENUM;
-  mark?: number;
   isFile?: boolean;
   user: Types.ObjectId;
   questions?: Types.ObjectId[]

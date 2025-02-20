@@ -4,6 +4,8 @@ export interface QuestionInterface {
   text: string;
   answers: Types.ObjectId[];
   quiz: Types.ObjectId;
+  timeLimit: number;
+  mark: number;
 }
 
 export interface UpdateQuestionInterface {
