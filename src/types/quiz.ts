@@ -26,6 +26,7 @@ export interface QuizInterface {
   mark?: number;
   isFile?: boolean;
   user: Types.ObjectId;
+  questions?: Types.ObjectId[]
 }
 
 export interface CreateQuizInterface {

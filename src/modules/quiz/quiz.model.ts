@@ -54,6 +54,12 @@ const quizSchema = new Schema<QuizInterface>(
       type: Boolean,
       default: false,
     },
+    questions: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: SCHEMA_NAMES.Question,
+      },
+    ],
   },
   { timestamps: true }
 );

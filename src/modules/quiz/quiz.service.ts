@@ -1,6 +1,7 @@
 import { CreateQuizInterface, UpdateQuizInterface } from "@/types/quiz";
 import { QuizModel } from "./quiz.model";
 import { Types } from "mongoose";
+import { POPULATIONS } from "@/constants/population";
 
 export const createQuiz = async ({ data }: CreateQuizInterface, context) => {
   try {

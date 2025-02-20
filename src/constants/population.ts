@@ -5,4 +5,7 @@ export const POPULATIONS = {
     { path: "answers", model: SCHEMA_NAMES.Answer },
     { path: "quiz", model: SCHEMA_NAMES.Quiz },
   ],
+  quiz: [
+    { path: "questions", model: SCHEMA_NAMES.Question }
+  ]
 };
