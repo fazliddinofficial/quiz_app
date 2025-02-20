@@ -3,4 +3,5 @@ export const SCHEMA_NAMES = {
   Answer: "Answer",
   Question: "Question",
   User:"User",
+  Game: 'Game'
 };
