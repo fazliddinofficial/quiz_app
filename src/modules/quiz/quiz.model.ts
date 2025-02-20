@@ -32,10 +32,6 @@ const quizSchema = new Schema<QuizInterface>(
     img: {
       type: String,
     },
-    keyword: {
-      type: String,
-      required: true,
-    },
     theme: {
       type: String,
       required: true,

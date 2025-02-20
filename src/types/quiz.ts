@@ -21,7 +21,6 @@ export interface QuizInterface {
   timeLimit?: number;
   visibility?: QUIZ_VISIBILITY;
   theme: string;
-  keyword: string;
   questionType: QUESTION_TYPE_ENUM;
   mark?: number;
   isFile?: boolean;

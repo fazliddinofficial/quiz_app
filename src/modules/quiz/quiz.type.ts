@@ -20,7 +20,6 @@ export const quizType = gql`
     timeLimit: Int
     description: String
     img: String
-    keyword: String
     theme: String
     visibility: QUIZ_VISIBILITY
     questionType: QUESTION_TYPE_ENUM
@@ -32,7 +31,6 @@ export const quizType = gql`
     timeLimit: Int
     description: String!
     img: String
-    keyword: String!
     theme: String!
     visibility: QUIZ_VISIBILITY!
     questionType: QUESTION_TYPE_ENUM!
@@ -43,7 +41,6 @@ export const quizType = gql`
     timeLimit: Int
     description: String
     img: String
-    keyword: String
     theme: String
     visibility: QUIZ_VISIBILITY
     questionType: QUESTION_TYPE_ENUM
