@@ -6,6 +6,7 @@ import { typeDefs } from "./graphql/types";
 import { resolvers } from "./graphql/resolvers";
 import { createServer } from "http";
 import mongoose from "mongoose";
+import { run } from "./utils/voice";
 
 const app = express();
 
@@ -26,6 +27,8 @@ server.start().then(() => server.applyMiddleware({ app, path: "/api" }));
 export const apolloServer = createServer(app);
 
 (async () => {
+  run()
+
   mongoose.connect("mongodb://localhost:27017/quizApp");
 
   apolloServer.listen(9000);

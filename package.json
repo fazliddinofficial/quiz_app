@@ -21,6 +21,7 @@
     "@graphql-tools/schema": "^10.0.16",
     "apollo-server-core": "^3.13.0",
     "apollo-server-express": "^3.13.0",
+    "assemblyai": "^4.9.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
