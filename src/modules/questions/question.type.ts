@@ -9,7 +9,6 @@ export const questionType = gql`
 
   input CreateQuestionInput {
     text: String!
-    answer: [ID]
     quiz: ID!
   }
 

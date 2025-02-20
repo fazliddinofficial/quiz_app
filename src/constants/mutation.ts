@@ -8,6 +8,6 @@ export const MUTATIONS = {
   DELETE_ANSWER_BY_ID: "deleteAnswerById",
 
   CREATE_QUESTION: "createQuestion",
-  UPDATE_QUESTION_BY_ID: "createQuestionById",
+  UPDATE_QUESTION_BY_ID: "updateQuestionById",
   DELETE_QUESTION_BY_ID: "deleteQuestionById",
 };

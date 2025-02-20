@@ -12,6 +12,12 @@ export const createQuestion = async (
   context
 ) => {
   try {
+    const foundQuestion = await QuestionModel.exists({ text: data.text });
+
+    if (foundQuestion) {
+      throw new Error("This question is already exist!");
+    }
+
     const foundQuiz = await QuizModel.findById(data.quiz).lean();
 
     if (!foundQuiz) throw new Error("quiz not found!");
@@ -21,7 +27,7 @@ export const createQuestion = async (
       quiz: foundQuiz._id,
     });
 
-    return createdQuestion;
+    return createdQuestion.populate(POPULATIONS.question);
   } catch (error) {
     throw new Error(error);
   }

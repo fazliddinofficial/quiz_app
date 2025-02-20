@@ -30,7 +30,7 @@ export const quizType = gql`
   input CreateQuizInput {
     title: String!
     timeLimit: Int
-    description: String
+    description: String!
     img: String
     keyword: String!
     theme: String!
@@ -47,5 +47,10 @@ export const quizType = gql`
     theme: String
     visibility: QUIZ_VISIBILITY
     questionType: QUESTION_TYPE_ENUM
+  }
+
+  type GetQuizOutput {
+    quiz: Quiz
+    questions: [Question]
   }
 `;

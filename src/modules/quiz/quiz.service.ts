@@ -2,15 +2,22 @@ import { CreateQuizInterface, UpdateQuizInterface } from "@/types/quiz";
 import { QuizModel } from "./quiz.model";
 import { Types } from "mongoose";
 import { POPULATIONS } from "@/constants/population";
+import { QuestionModel } from "../questions/question.model";
 
 export const createQuiz = async ({ data }: CreateQuizInterface, context) => {
   try {
+    const foundQuiz = await QuizModel.find({ title: data.title });
+
+    if (foundQuiz) {
+      throw new Error("Choose another title!");
+    }
+
     const createdQuiz = await QuizModel.create({
       ...data,
       user: context.userId,
     });
 
-    return createdQuiz;
+    return createdQuiz.populate(POPULATIONS.quiz);
   } catch (error) {
     throw new Error(error);
   }
@@ -48,7 +55,9 @@ export const getQuizById = async (
       throw new Error("Quiz not found!");
     }
 
-    return foundQuiz;
+    const foundQuestions = await QuestionModel.find({ quiz: quizId });
+
+    return { quiz: foundQuiz, questions: foundQuestions };
   } catch (error) {
     throw new Error(error);
   }
