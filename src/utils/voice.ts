@@ -15,5 +15,3 @@ export const run = async () => {
   const transcript = await client.transcripts.transcribe(config)
   console.log(transcript.text)
 }
-
-run()

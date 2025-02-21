@@ -4,6 +4,7 @@ export interface AnswerInterface {
   text: string;
   isTrue: boolean;
   question: Types.ObjectId;
+  audioUrl: string;
 }
 
 export interface UpdateAnswerById {

@@ -17,6 +17,9 @@ const answerSchema = new Schema<AnswerInterface>(
       type: String,
       required: true,
     },
+    audioUrl: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
