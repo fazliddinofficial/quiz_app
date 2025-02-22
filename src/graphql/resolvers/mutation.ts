@@ -1,3 +1,4 @@
+import GraphQLUpload from "graphql-upload";
 import { MUTATIONS } from "@/constants/mutation";
 import * as quizService from "@/modules/quiz/quiz.service";
 import * as answerService from "@/modules/answers/answer.service";

@@ -3,10 +3,10 @@ import express from "express";
 import cors from "cors";
 import { createServer } from "http";
 import mongoose from "mongoose";
-import { upload, uploadAudio } from "./utils/multer";
 import { typeDefs } from "./graphql/types";
 import { resolvers } from "./graphql/resolvers";
 import { context } from "./graphql";
+import { graphqlUploadExpress } from "graphql-upload-minimal";
 
 const app = express();
 
@@ -14,17 +14,16 @@ app.use(cors({ origin: "http://localhost:9000", credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("./public"));
-
-app.post("/api/uploads/audio", upload.single("audio"), uploadAudio);
+app.use(graphqlUploadExpress({ maxFileSize: 10000000, maxFiles: 10 }));
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  introspection: true,
+  // csrfPrevention: false,
+  // introspection: true,
   context,
 });
 
-const apolloServer = createServer(app);
 
 async function startServer() {
   try {
@@ -32,9 +31,11 @@ async function startServer() {
       process.env.MONGO_URI || "mongodb://localhost:27017/quizApp"
     );
     console.log("MongoDB connected");
-
+    
     await server.start();
-    server.applyMiddleware({ app });
+    server.applyMiddleware({ app, path: "/api" });
+
+    const apolloServer = createServer(app);
 
     apolloServer.listen(9000, () => {
       console.log("Server up and running on port 9000");

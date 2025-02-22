@@ -12,6 +12,7 @@ export const answerType = gql`
     isTrue: Boolean
     question: ID!
     text: String!
+    file: Upload
   }
 
   input UpdateAnswerInput {

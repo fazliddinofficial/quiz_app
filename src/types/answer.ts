@@ -1,6 +1,7 @@
 import { Types } from "mongoose";
 
 export interface AnswerInterface {
+  _id: Types.ObjectId;
   text: string;
   isTrue: boolean;
   question: Types.ObjectId;
