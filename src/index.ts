@@ -20,7 +20,6 @@ app.post("/api/uploads/audio", upload.single("audio"), uploadAudio);
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  // csrfPrevention: true,
   introspection: true,
   context,
 });

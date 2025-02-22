@@ -11,11 +11,9 @@ const answerSchema = new Schema<AnswerInterface>(
     question: {
       type: Schema.Types.ObjectId,
       ref: SCHEMA_NAMES.Question,
-      required: true,
     },
     text: {
       type: String,
-      required: true,
     },
     audioUrl: {
       type: String,
