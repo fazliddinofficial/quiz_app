@@ -10,7 +10,7 @@ import { context } from "./graphql";
 
 const app = express();
 
-app.use(cors({ origin: "http://localhost:9000", credentials: true }));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("./public"));
@@ -21,7 +21,6 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   introspection: true,
-  context,
 });
 
 const apolloServer = createServer(app);
