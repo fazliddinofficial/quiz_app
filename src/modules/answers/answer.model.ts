@@ -18,6 +18,9 @@ const answerSchema = new Schema<AnswerInterface>(
     audioUrl: {
       type: String,
     },
+    videoUrl: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

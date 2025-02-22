@@ -6,6 +6,8 @@ import { QuizModel } from "../quiz/quiz.model";
 import { QuestionModel } from "./question.model";
 import { Types } from "mongoose";
 import { POPULATIONS } from "@/constants/population";
+import { createWriteStream } from "fs";
+import path from "path";
 
 export const createQuestion = async (
   { data }: CreateQuestionInterface,
@@ -13,6 +15,14 @@ export const createQuestion = async (
 ) => {
   try {
     const foundQuestion = await QuestionModel.exists({ text: data.text });
+
+    const { createReadStream } = data.file;
+
+    createReadStream().pipe(
+      createWriteStream(
+        path.join(__dirname, `../../public/${data.file.filename}`)
+      )
+    );
 
     if (foundQuestion) {
       throw new Error("This question is already exist!");
@@ -25,6 +35,7 @@ export const createQuestion = async (
     const createdQuestion = await QuestionModel.create({
       ...data,
       quiz: foundQuiz._id,
+      timeLimit:67
     });
 
     return createdQuestion.populate(POPULATIONS.question);

@@ -26,7 +26,7 @@ const questionSchema = new Schema<QuestionInterface>(
     },
     timeLimit: {
       type: Number,
-      default: Number,
+      default: 10,
     },
   },
   { timestamps: true }

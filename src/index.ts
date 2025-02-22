@@ -10,7 +10,7 @@ import { graphqlUploadExpress } from "graphql-upload-minimal";
 
 const app = express();
 
-app.use(cors({ origin: "http://localhost:9000", credentials: true }));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("./public"));
@@ -19,9 +19,8 @@ app.use(graphqlUploadExpress({ maxFileSize: 10000000, maxFiles: 10 }));
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  // csrfPrevention: false,
-  // introspection: true,
-  context,
+  introspection: true,
+  // context,
 });
 
 

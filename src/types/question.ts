@@ -1,3 +1,4 @@
+import { FileUpload } from "graphql-upload-minimal";
 import { Types } from "mongoose";
 
 export interface QuestionInterface {
@@ -6,6 +7,7 @@ export interface QuestionInterface {
   quiz: Types.ObjectId;
   timeLimit: number;
   mark: number;
+  file: FileUpload
 }
 
 export interface UpdateQuestionInterface {
