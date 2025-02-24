@@ -15,10 +15,7 @@ const answerSchema = new Schema<AnswerInterface>(
     text: {
       type: String,
     },
-    audioUrl: {
-      type: String,
-    },
-    videoUrl: {
+    file: {
       type: String,
     },
   },

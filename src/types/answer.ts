@@ -1,3 +1,4 @@
+import { FileUpload } from "graphql-upload-minimal";
 import { Types } from "mongoose";
 
 export interface AnswerInterface {
@@ -5,8 +6,7 @@ export interface AnswerInterface {
   text: string;
   isTrue: boolean;
   question: Types.ObjectId;
-  audioUrl: string;
-  videoUrl: string;
+  file: FileUpload;
 }
 
 export interface UpdateAnswerById {

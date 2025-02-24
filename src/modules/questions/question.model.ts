@@ -28,6 +28,9 @@ const questionSchema = new Schema<QuestionInterface>(
       type: Number,
       default: 10,
     },
+    file: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

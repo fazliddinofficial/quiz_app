@@ -15,6 +15,7 @@ export const questionType = gql`
     quiz: ID!
     timeLimit: Int
     mark: Int
+    file: Upload
   }
 
   input UpdateQuestionInput {

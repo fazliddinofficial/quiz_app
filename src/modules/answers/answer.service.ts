@@ -6,12 +6,24 @@ import {
 import { AnswerModel } from "./answer.model";
 import { Types } from "mongoose";
 import { QuestionModel } from "../questions/question.model";
+import { createWriteStream } from "fs";
+import path from "path";
 
 export const createAnswer = async (
   { data }: CreateAnswerInterface,
   context
 ) => {
   try {
+    console.log(await data.file)
+    const { createReadStream } = await data.file;
+
+
+    createReadStream().pipe(
+      createWriteStream(
+        path.join(__dirname, `../../public/${data.file.filename}`)
+      )
+    );
+
     const createdAnswer = await AnswerModel.create({ ...data });
 
     const updatedQuestion = await QuestionModel.findById(data.question);
