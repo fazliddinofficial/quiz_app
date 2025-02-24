@@ -29,7 +29,7 @@ const questionSchema = new Schema<QuestionInterface>(
       default: Number,
     },
   },
-  { timestamps: true }
+  { timestamps: true, versionKey: false }
 );
 
 export const QuestionModel = model(SCHEMA_NAMES.Question, questionSchema);

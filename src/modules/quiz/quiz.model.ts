@@ -49,7 +49,7 @@ const quizSchema = new Schema<QuizInterface>(
       },
     ],
   },
-  { timestamps: true }
+  { timestamps: true, versionKey: false }
 );
 
 export const QuizModel = model(SCHEMA_NAMES.Quiz, quizSchema);

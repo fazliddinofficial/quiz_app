@@ -19,7 +19,7 @@ const answerSchema = new Schema<AnswerInterface>(
       type: String,
     },
   },
-  { timestamps: true }
+  { timestamps: true, versionKey: false }
 );
 
 export const AnswerModel = model(SCHEMA_NAMES.Answer, answerSchema);

@@ -28,6 +28,7 @@ const gameSchema = new Schema<GameInterface>(
   },
   {
     timestamps: true,
+    versionKey: false
   }
 );
 
