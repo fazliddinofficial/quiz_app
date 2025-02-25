@@ -6,7 +6,6 @@ import mongoose from "mongoose";
 import { upload, uploadAudio } from "./utils/multer";
 import { typeDefs } from "./graphql/types";
 import { resolvers } from "./graphql/resolvers";
-import { context } from "./graphql";
 
 const app = express();
 

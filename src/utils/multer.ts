@@ -26,7 +26,7 @@ export const uploadAudio = async (req: e.Request, res: e.Response) => {
 
     const createdAnswer = await AnswerModel.create({ audioUrl: file });
 
-    res.status(201).json({ fileUrl: file, answer: createdAnswer });
+    res.status(201).json({ id: createdAnswer._id, fileUrl: file, answer: createdAnswer });
   } catch (error) {
     throw new Error(error);
   }

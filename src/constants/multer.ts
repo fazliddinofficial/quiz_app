@@ -15,9 +15,7 @@ export function createPublicFileUrl(file: string) {
 
   const host = process.env.HOST || `localhost:${PORT}`;
 
-  const filePublicUrl = `http://${host}/${
-    file.startsWith("public/") ? file.replace("public/", "") : file
-  }`;
+  const filePublicUrl = `http://${host}/${file.startsWith("public/") ? file.replace("public/", "uploads") : `uploads/${file}`}`;
 
   return filePublicUrl;
 }
