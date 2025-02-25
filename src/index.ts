@@ -6,6 +6,9 @@ import mongoose from "mongoose";
 import { upload, uploadAudio } from "./utils/multer";
 import { typeDefs } from "./graphql/types";
 import { resolvers } from "./graphql/resolvers";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 
@@ -26,16 +29,16 @@ const apolloServer = createServer(app);
 
 async function startServer() {
   try {
-    await mongoose.connect(
-      process.env.MONGO_URI || "mongodb://localhost:27017/quizApp"
-    );
+    await mongoose.connect(process.env.MONGO_URI);
     console.log("MongoDB connected");
 
     await server.start();
     server.applyMiddleware({ app });
 
-    apolloServer.listen(9000, () => {
-      console.log("Server up and running on port 9000");
+    const port = process.env.PORT;
+
+    apolloServer.listen(port, () => {
+      console.log("Server up and running on port " + port);
     });
   } catch (error) {
     console.error("Error starting server:", error);

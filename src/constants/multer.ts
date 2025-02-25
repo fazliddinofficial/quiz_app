@@ -4,10 +4,10 @@ import fs from "fs";
 
 export const UPLOADS_PATH = path.join(
   __dirname,
-  '..',
-  '..',
-  'public',
-  'uploads',
+  "..",
+  "..",
+  "public",
+  "uploads"
 );
 
 export function createPublicFileUrl(file: string) {
@@ -15,7 +15,11 @@ export function createPublicFileUrl(file: string) {
 
   const host = process.env.HOST || `localhost:${PORT}`;
 
-  const filePublicUrl = `http://${host}/${file.startsWith("public/") ? file.replace("public/", "uploads") : `uploads/${file}`}`;
+  const filePublicUrl = `http://${host}/${
+    file.startsWith("public/")
+      ? file.replace("public/", "uploads")
+      : `uploads/${file}`
+  }`;
 
   return filePublicUrl;
 }
