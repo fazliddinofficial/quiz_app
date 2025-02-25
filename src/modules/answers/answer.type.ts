@@ -16,7 +16,7 @@ export const answerType = gql`
 
   input UpdateAnswerInput {
     isTrue: Boolean
-    question: ID
-    text: String
+    question: ID!
+    text: String!
   }
 `;
