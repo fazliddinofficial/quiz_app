@@ -9,6 +9,10 @@ import { UserModel } from "../user/user.model";
 
 export const createGame = async ({ data }: CreateGameInput, context: any) => {
   try {
+    const foundGame = await GameModel.findOne({ keyword: data.keyword });
+
+    if (foundGame) throw new Error("Game is already exist with this keyword!");
+
     const createdGame = await GameModel.create({
       ...data,
       ownerId: context.userId || "677e68e26ff50cb27af060fe",
