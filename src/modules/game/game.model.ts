@@ -8,7 +8,7 @@ const gameSchema = new Schema<GameInterface>(
       type: String,
       required: true,
     },
-    ownerUserId: {
+    ownerId: {
       type: Schema.Types.ObjectId,
       ref: SCHEMA_NAMES.User,
       required: true,
@@ -28,8 +28,8 @@ const gameSchema = new Schema<GameInterface>(
   },
   {
     timestamps: true,
-    versionKey: false
-  }
+    versionKey: false,
+  },
 );
 
 export const GameModel = model(SCHEMA_NAMES.Game, gameSchema);

@@ -1,13 +1,13 @@
 import { GameInterface, UpdateGameInterface } from "@/types/game";
 import { GameModel } from "./game.model";
 import { Types } from "mongoose";
+import { UserModel } from "../user/user.model";
 
 export const createGame = async (data: GameInterface, context: any) => {
   try {
-    console.log(data);
     const createdGame = await GameModel.create({
       ...data,
-      ownerUserId: context.userId || "677e68e26ff50cb27af060fe",
+      ownerId: context.userId || "677e68e26ff50cb27af060fe",
     });
 
     return createdGame;
@@ -18,13 +18,13 @@ export const createGame = async (data: GameInterface, context: any) => {
 
 export const updateGameById = async (
   data: UpdateGameInterface,
-  context: any
+  context: any,
 ) => {
   try {
     const foundGame = await GameModel.findByIdAndUpdate(
       data.gameId,
       data.updates,
-      { new: true }
+      { new: true },
     );
 
     if (!foundGame) {
@@ -62,5 +62,22 @@ export const getGameById = async (gameId: Types.ObjectId, context: any) => {
     return foundGame;
   } catch (error) {
     throw new Error(error);
+  }
+};
+
+export const getGame = async (keyword: string, context: any) => {
+  try {
+    const foundGame = await GameModel.findOne({ keyword });
+
+    if (!foundGame) {
+      throw new Error("Game not found");
+    }
+
+    foundGame.playersId.push(context.userId);
+    foundGame.save();
+
+    return foundGame;
+  } catch (e) {
+    throw new Error(e);
   }
 };

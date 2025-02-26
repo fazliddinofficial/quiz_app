@@ -3,7 +3,7 @@ import { gql } from "apollo-server-core";
 export const gameTypes = gql`
   type Game {
     _id: ID
-    ownerUserId: ID
+    ownerId: ID
     keyword: String
     playersId: ID
     quizId: ID
