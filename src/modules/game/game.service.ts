@@ -1,9 +1,13 @@
-import { GameInterface, UpdateGameInterface } from "@/types/game";
+import {
+  CreateGameInput,
+  GameInterface,
+  UpdateGameInterface,
+} from "@/types/game";
 import { GameModel } from "./game.model";
 import { Types } from "mongoose";
 import { UserModel } from "../user/user.model";
 
-export const createGame = async (data: GameInterface, context: any) => {
+export const createGame = async ({ data }: CreateGameInput, context: any) => {
   try {
     const createdGame = await GameModel.create({
       ...data,

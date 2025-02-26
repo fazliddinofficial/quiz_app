@@ -5,19 +5,19 @@ export const gameTypes = gql`
     _id: ID
     ownerId: ID
     keyword: String
-    playersId: ID
+    playersId: [ID]
     quizId: ID
   }
 
   input CreateGameInput {
     keyword: String!
-    playersId: ID!
+    playersId: [ID!]!
     quizId: ID!
   }
 
   input UpdateGamePropsInput {
     keyword: String
-    playersId: ID
+    playersId: [ID]
     quizId: ID
   }
 
