@@ -65,7 +65,10 @@ export const getGameById = async (gameId: Types.ObjectId, context: any) => {
   }
 };
 
-export const getGame = async (keyword: string, context: any) => {
+export const getGameByKeyword = async (
+  { keyword }: { keyword: string },
+  context: any,
+) => {
   try {
     const foundGame = await GameModel.findOne({ keyword });
 

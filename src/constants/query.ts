@@ -9,4 +9,5 @@ export const QUERIES = {
   GET_QUESTIONS: "getQuestions",
 
   GET_GAME_BY_ID: "getGameById",
+  GET_GAME_BY_KEYWORD: "getGameByKeyword",
 };

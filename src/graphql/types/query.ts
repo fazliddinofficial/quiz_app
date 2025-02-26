@@ -13,5 +13,6 @@ export const queryType = gql`
     ${QUERIES.GET_ANSWER_BY_ID}(answerId: ID): Question
 
     ${QUERIES.GET_GAME_BY_ID}(gameId: ID): Game
+    ${QUERIES.GET_GAME_BY_KEYWORD}(keyword: String): Game
   }
 `;

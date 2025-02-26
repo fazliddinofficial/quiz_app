@@ -26,4 +26,7 @@ export const query = {
   [QUERIES.GET_GAME_BY_ID]: (_, args, context) => {
     return gameService.getGameById(args, context);
   },
+  [QUERIES.GET_GAME_BY_KEYWORD]: (_, args, context) => {
+    return gameService.getGameByKeyword(args, context);
+  },
 };

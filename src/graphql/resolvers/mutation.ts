@@ -16,7 +16,7 @@ export const mutations = {
   [MUTATIONS.DELETE_QUIZ_BY_ID]: (
     _,
     args: { quizId: Types.ObjectId },
-    context
+    context,
   ) => {
     return quizService.deleteQuizById(args, context);
   },
